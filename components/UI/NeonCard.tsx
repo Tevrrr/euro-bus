@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import type { NextPage } from 'next';
-import { useRef } from 'react';
+import { ReactNode, useRef } from 'react';
 
 interface NeonCardProps {
 	number: number;
@@ -10,6 +10,7 @@ interface NeonCardProps {
 	items: string[];
 	isEven?: boolean;
 	className?: string;
+	content?: ReactNode;
 }
 
 const NeonCard: NextPage<NeonCardProps> = ({
@@ -18,6 +19,7 @@ const NeonCard: NextPage<NeonCardProps> = ({
 	items,
 	isEven = false,
 	className,
+	content,
 }) => {
 	const conainer = useRef(null);
 	const isInView = useInView(conainer, { once: true, amount: 0.3 });
@@ -30,12 +32,15 @@ const NeonCard: NextPage<NeonCardProps> = ({
 					translateX: isInView ? 0 : isEven ? '100vw' : '-100vw',
 				}}
 				transition={{ type: 'spring', bounce: 0, delay: 0.1 }}
-				className=' relative h-full flex gap-4 py-11 px-6 md:pl-16 drop-shadow-neon-sm md:drop-shadow-neon text-accent bg-base-300 rounded-3xl'>
+				className=' relative h-full flex  gap-4 py-11 px-6 md:pl-16 drop-shadow-neon-sm md:drop-shadow-neon text-accent bg-base-300 rounded-3xl'>
 				<div className=' absolute md:relative font-bold text-5xl opacity-80'>
 					{number.toString().padStart(2, '0')}
 				</div>
-				<div className=' grow flex flex-col gap-3'>
-					<h4 className='md:pl-0 pl-16'>{title}</h4>
+				<div className={` grow flex flex-col gap-3`}>
+					<div>
+						<h4 className='md:pl-0 pl-16'>{title}</h4>
+						{content}
+					</div>
 					<ul className=' font-bold text-xl leading-8 marker:text-accent list-square pl-8'>
 						{items.map((item) => {
 							return <li key={item}>{item}</li>;

@@ -64,8 +64,13 @@ const OurServices: NextPage<OurServicesProps> = () => {
 							isEven
 							number={2}
 							title='Транспортировка граждан Украины через ✈️Шереметьево. '
+							content={
+								<p className=' text-lg  border-l-2 border-text-accent p-2'>
+									Для граждан у которых нет Паспорта РФ а
+									только лишь Украинский загранпаспорт!
+								</p>
+							}
 							items={[
-								'Для граждан у которых нет Паспорта РФ а только лишь Украинский загранпаспорт!',
 								'Везем из ЕС и Украины в Минский аэропорт',
 								'Садим вас в самолет и встречаем в Шереметьево',
 								'Везем вас в Донецк, Луганск, Мариуполь и други города',
@@ -73,8 +78,7 @@ const OurServices: NextPage<OurServicesProps> = () => {
 						/>
 						<NeonCard
 							className=''
-							isEven
-							number={4}
+							number={3}
 							title='Денежные переводы и обмен валют'
 							items={[
 								'Помощь в отправке денежных средств из ДНР, ЛНР и РФ в Европу или Украину и так же обратно',
@@ -85,7 +89,8 @@ const OurServices: NextPage<OurServicesProps> = () => {
 					</div>
 					<div className='w-full flex flex-col xl:flex-row gap-14 xl:gap-24 '>
 						<NeonCard
-							number={3}
+							number={4}
+							isEven
 							title='Перегон автомобиля'
 							items={[
 								'Перегон вашего авто из Донецка и области , Луганска и области, городов РФ в Европу, Украину или в обратном направлении',
