@@ -9,6 +9,7 @@ interface NeonCardProps {
 	title: string;
 	items: string[];
 	isEven?: boolean;
+	className?: string;
 }
 
 const NeonCard: NextPage<NeonCardProps> = ({
@@ -16,12 +17,13 @@ const NeonCard: NextPage<NeonCardProps> = ({
 	title,
 	items,
 	isEven = false,
+	className,
 }) => {
 	const conainer = useRef(null);
 	const isInView = useInView(conainer, { once: true, amount: 0.3 });
 	return (
 		<article
-			className='relative xl:even:translate-y-24 even:self-end xl:even:self-auto max-w-2xl xl:w-1/2'
+			className={`relative xl:even:translate-y-24 even:self-end xl:even:self-auto max-w-2xl xl:w-1/2 ${className}`}
 			ref={conainer}>
 			<motion.div
 				animate={{
