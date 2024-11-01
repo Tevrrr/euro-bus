@@ -82,7 +82,7 @@ const OurServices: NextPage<OurServicesProps> = () => {
 						<NeonCard
 							isEven
 							number={4}
-							title='Ежедневное отправление Украины через ✈️Шереметьево. '
+							title='Ежедневное отправление людей через ✈️Шереметьево. '
 							content={
 								<p className=' text-lg  border-l-2 border-text-accent p-2'>
 									Для граждан у которых нет Паспорта РФ, а
